@@ -1,0 +1,62 @@
+.home{
+    /* background-color: rgba(0, 0, 0, 0.902); */
+    background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+    background-attachment: fixed;
+    /* background-color: linear-gradient(orange,black); */
+    display: flex;
+    padding-top: 1rem;
+    min-height: 87vh;
+}
+.home_left{
+    flex: 0.7;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    /* border: 0.1rem dotted black; */
+    
+}
+.home_heading{
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.833);
+}
+.home_right{
+    flex: 0.3;
+    height: 83vh;
+    border-top: 0.2rem solid grey;
+    border-left: 0.2rem solid grey;
+    border-bottom: 0.2rem solid grey;
+    border-radius: 3rem;
+    margin-right: 2rem;
+}
+.floating_button{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .home_right{
+        display: none;
+    }
+    .home_left{
+        flex: 1;
+        margin: 0 0.2rem;
+    }
+    .home_heading{
+        font-size: 2rem;
+    }
+    .floating_button{
+        display: block;
+        position:fixed;
+        width:50px;
+        height:60px;
+        bottom:10px;
+        right:10px;
+    }
+    .floating_button > button{
+        border: none;
+        border-radius: 10rem;
+        font-size: 2rem;
+        background-color: orange;
+    }
+}

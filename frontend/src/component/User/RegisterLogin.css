@@ -1,0 +1,172 @@
+/* Login */
+.login{
+    background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 1rem;
+    min-height: 87vh;
+}
+.login_heading > h2{
+    font-size: 3rem;
+    color: white;
+    margin: 3rem;
+}
+.login_container > button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 20rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    background-color: rgb(221, 217, 217);
+    border-radius: 1rem;
+}
+.login_container > button > img{
+    height: 2rem;
+    width: 2rem;
+    margin-right: 2rem;
+}
+
+/* REGISTER */
+.register_form{
+    background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding-top: 1rem;
+    min-height: 88vh;
+}
+.register_heading > h2{
+    font-size: 3rem;
+    color: white;
+    margin: 1rem;
+}
+.signUpForm{
+    /* border: 0.1rem rgba(255, 166, 0, 0.5) solid; */
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    /* width: 15rem; */
+}
+.register_form_input > input{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.9rem;
+    width: 15rem;
+    background-color: black;
+    height: 1rem;
+    padding: 1rem;
+    margin: 1rem 0rem;
+    border: none;
+    outline: none;
+    resize: none;
+    color: white;
+    border-radius: 2rem;
+}
+.register_form_otp{
+    display: flex;
+    align-items: center;
+    margin-left: 8rem;
+}
+.sendOtpButton{
+    background-color: orange;
+    color: black;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 5rem;
+    border: none;
+    font: "Roboto";
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+.otpButtonAble{
+    background-color: orange;
+    color: black;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 5rem;
+    border: none;
+    /* margin: 2rem; */
+    font: "Roboto";
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+.otpButtonDisable{
+    background-color: gray;
+    color: rgba(0, 0, 0, 0.687);
+    height: 2rem;
+    width: 6rem;
+    border-radius: 5rem;
+    border: none;
+    /* margin: 2rem; */
+    font: "Roboto";
+    font-size: 1rem;
+    font-weight: 700;
+    /* cursor: pointer; */
+    margin-left: 2rem;
+}
+.register_form_otp > input{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.9rem;
+    width: 15rem;
+    background-color: black;
+    height: 1rem;
+    padding: 1rem;
+    margin: 1rem 0rem;
+    border: none;
+    outline: none;
+    resize: none;
+    color: white;
+    border-radius: 2rem;
+}
+.registerAble{
+    background-color: orange;
+    color: black;
+    width: 10rem;
+    border-radius: 5rem;
+    border: none;
+    margin: 2rem;
+    font: "Roboto";
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 3.8rem;
+
+}
+.registerDisable{
+    background-color: gray;
+    color: rgba(0, 0, 0, 0.687);
+    width: 10rem;
+    border-radius: 5rem;
+    border: none;
+    margin: 2rem;
+    font: "Roboto";
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-left: 3.8rem;
+}
+
+@media screen and (max-width: 600px) {
+    .login_heading > h2{
+        font-size: 1.6rem;
+    }
+    .register_heading > h2{
+        font-size: 1.6rem;
+    }
+    .register_form_otp{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+}
+

@@ -1,0 +1,27 @@
+.sidebar{
+     background-color: black;
+     display: flex;
+     flex-direction: column;
+     /* flex: 1; */
+     /* width: 100%; */
+     justify-content: center;
+     /* align-items: center; */
+}
+.sidebar_list{
+     display: flex;
+     flex-direction: column;
+     /* justify-content: center; */
+     align-items: center;
+}
+.sidebar_list_heading > a{
+     text-decoration: none;
+}
+.sidebar_list_heading > a >  h3{
+     color: orange;
+
+}
+.break{
+     height: 0.1rem;
+     background-color: white;
+     margin: 1rem 0;
+}

@@ -1,0 +1,30 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6vh;
+    background-color: black;
+    text-decoration: none;
+    padding: 0.8rem 0;
+}
+.navbar > a{
+    font: 300 1rem "Roboto";
+    margin: 0 3rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(253, 166, 5);
+    /* padding: 1rem 0; */
+}
+.logo{
+    margin-top: 0.4rem;
+    height: 3rem;
+    width: 9rem;
+}
+@media screen and (max-width: 600px) {
+    .navbar{
+        justify-content: space-around;
+    }
+    .navbar > a{
+        margin: 0 0px;
+    }
+}

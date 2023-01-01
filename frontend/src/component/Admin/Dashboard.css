@@ -1,0 +1,33 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.dashboard::-webkit-scrollbar {
+     display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.dashboard {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+.dashboard{
+     background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+     background-attachment: fixed;
+     /* display: flex; */
+     /* padding-top: 1rem; */
+     min-height: 90vh;
+     width: 100vw;
+     max-width: 100%;
+     display: grid;
+     grid-template-columns: 1fr 5fr;
+     position: absolute;
+}
+
+.dashboard_heading{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.dashboard_heading > h1{
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     color: white;
+     text-decoration: underline;
+}

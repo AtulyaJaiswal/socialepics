@@ -1,0 +1,86 @@
+.profile{
+    background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+    background-attachment: fixed;
+    display: flex;
+    padding-top: 1rem;
+    min-height: 87vh;
+}
+.profile-left{
+    flex: 0.7;
+    margin-left: 2rem;
+    margin-right: 1rem;  
+}
+.profile-heading{
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-heading-left > h4{
+    font-size: 3rem;
+    color: white;
+}
+.profile-heading-left > h6{
+    font-size: 1rem;
+    color: gray;
+}
+.profile-heading-right > button{
+    margin: 2rem;
+    background-color: orange;
+    color: black;
+    width: 7rem;
+    border-radius: 2rem;
+    border: none;
+    font: "Roboto";
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.profile-right{
+    flex: 0.3;
+    height: 83vh;
+    border-top: 0.2rem solid grey;
+    border-left: 0.2rem solid grey;
+    border-bottom: 0.2rem solid grey;
+    border-radius: 3rem;
+    margin-right: 2rem;
+}
+.no_posts{
+    color: orange;
+    text-decoration: underline;
+    font-size: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.floating_button{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .profile-heading-left > h4{
+        font-size: 1.8rem;
+    }
+    .profile{
+        min-height: 89vh;
+    }
+    .profile-right{
+        display: none;
+    }
+    .profile-left{
+        flex: 1;
+        margin: 0 0.4rem;
+    }
+    .floating_button{
+        display: block;
+        position:fixed;
+        width:50px;
+        height:60px;
+        bottom:10px;
+        right:10px;
+    }
+    .floating_button > button{
+        border: none;
+        border-radius: 10rem;
+        font-size: 2rem;
+        background-color: orange;
+    }
+}

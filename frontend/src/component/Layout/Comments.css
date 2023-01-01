@@ -1,0 +1,94 @@
+.comment{
+    background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+    background-attachment: fixed;
+    min-height: 89vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding: 0 10rem;
+}
+.comment_heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 30vh;
+}
+.comment_heading > h4{
+    font-size: 2rem;
+    color: orange;
+    text-decoration: underline;
+}
+.comment_heading > p{
+    color: rgb(213, 211, 211);
+    font-family: "Lato";
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 0;
+}
+.comment-enter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.button_comment{
+    margin: 0.5rem;
+    background-color: orange;
+    color: black;
+    width: 8rem;
+    border-radius: 2rem;
+    border: none;
+    font: "Roboto";
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.5s;
+    transform: rotate(0.5turn);
+}
+.button_comment:hover{
+    transform: rotate(0turn);
+}
+.comment-input{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4rem;
+    outline: none;
+    resize: none;
+    background-color: rgba(0, 0, 0, 0.868);
+    height: 1rem;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    overflow-y: hidden;
+    color: rgb(159, 157, 155);
+}
+
+.comment_area{
+    margin: 2rem 0rem;
+}
+.no_comment{
+    color: orange;
+    text-decoration: underline;
+    font-size: 1.1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+    .comment{
+        padding: 0.2rem;
+    }
+    .comment_heading{
+        margin: 1rem;
+        min-height: 10vh;
+    }
+    .button_comment{
+        transform: none;
+    }
+    .no_comment{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

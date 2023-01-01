@@ -1,0 +1,89 @@
+.create_post_mobile{
+     background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+     background-attachment: fixed;
+     /* display: flex; */
+     /* padding-top: 1rem; */
+     min-height: 87vh;
+     /* margin-left: 0.5rem; */
+ }
+.post_heading_mobile{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     margin: 0;
+     text-decoration: underline;
+     
+}
+.post_heading_mobile > h3{
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 1.6rem;
+     font-weight: 600;
+}
+.post_input_mobile{
+     display: flex;
+     flex-direction: column;
+     margin: 0 0.5rem;
+     /* border: 0.5rem solid white; */
+}
+.post_input_mobile > h6{
+     
+     font-size: 1.2rem;
+     color: wheat;
+     margin-left: 0.3rem;
+}
+.topic-input_mobile{
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 1rem;
+     font-weight: 600;
+     border: none;
+     border-radius: 4rem;
+     outline: none;
+     resize: none;
+     background-color: rgba(0, 0, 0, 0.868);
+     height: 1rem;
+     margin: 0.5rem 0;
+     padding: 1rem;
+     overflow-y: hidden;
+     color: rgb(159, 157, 155);
+}
+.text_input_mobile{
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 1rem;
+     font-weight: 700;
+     border: none;
+     border-radius: 2rem;
+     outline: none;
+     resize: none;
+     background-color: rgba(0, 0, 0, 0.868);
+     height: 17rem;
+     margin: 0.5rem 0;
+     overflow-y:auto;
+     -ms-overflow-style: none;
+     scrollbar-width: none; 
+     color: rgb(159, 157, 155);
+     padding: 1rem;
+}
+.text_input_mobile::-webkit-scrollbar {
+     display: none;
+}
+.post_button_mobile{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.post_button_mobile > button{
+     background-color: orange;
+     color: black;
+     width: 5rem;
+     border-radius: 2rem;
+     font: "Roboto";
+     border: none;
+     font-size: 1.1rem;
+     font-weight: 700;
+     cursor: pointer;
+     /* transition: all 0.5s;  */
+     /* transform: rotate(0.5turn); */
+     /* box-shadow: 0 2px 5px rgba(146, 39, 39, 0.219); */
+}    
+
