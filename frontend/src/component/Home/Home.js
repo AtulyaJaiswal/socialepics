@@ -50,7 +50,7 @@ const Home = () => {
             <div className='home'>
               <div className='home_left'>
                   <div className='home_heading'>
-                    <h4>Try something here</h4>
+                    <h4>Do Not Try Something Here</h4>
                   </div>
                   <div>
                     {posts &&
