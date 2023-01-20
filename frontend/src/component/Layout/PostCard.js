@@ -7,6 +7,7 @@ import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
 import { Link } from 'react-router-dom';
 import { likeDislike, getPosts } from '../../actions/postAction';
 import { useSelector, useDispatch } from "react-redux";
+import { toast } from 'react-toastify';
 
 const PostCard = ({post,user,isAuthenticated}) => {
 
@@ -16,9 +17,14 @@ const PostCard = ({post,user,isAuthenticated}) => {
     const [likeCount, setLikeCount] = useState(post.hearts.length);
 
     const handleLike = async () => {
-        setLiked(!liked);
-        setLikeCount(liked?likeCount-1:likeCount+1);
-        dispatch(likeDislike(post._id));
+        if(isAuthenticated===true){
+            setLiked(!liked);
+            setLikeCount(liked?likeCount-1:likeCount+1);
+            dispatch(likeDislike(post._id));
+        }
+        else{
+            toast.error("Login First");
+        }
     };
 
     useEffect(() => {

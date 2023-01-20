@@ -73,7 +73,7 @@ export const openSpecificPost = (id) => async (dispatch) => {
 
         const { data } = await axios.get(`/social/comment/${id}`);
 
-        // console.log(data.post);
+        console.log(data.post);
 
         dispatch({
             type: OPEN_SPECIFIC_POST_SUCCESS,

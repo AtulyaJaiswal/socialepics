@@ -119,6 +119,7 @@ exports.getSpecificPosts = catchAsyncErrors(async(req,res,next) => {
     if(!post){
         return next(new ErrorHandler("Product not found", 404));
     }
+    console.log(post);
     
     res.status(200).json({
         success: true,

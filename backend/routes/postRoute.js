@@ -6,7 +6,7 @@ const {isAuthenticatedUser, authorizeRoles} = require("../middleware/auth");
 router.route('/createPost').post(isAuthenticatedUser, createPost);
 router.route('/deletePost/:id').delete(isAuthenticatedUser, deletePost);
 router.route('/posts').get(getAllPosts);
-router.route('/comment/:id').get(isAuthenticatedUser, getSpecificPosts);
+router.route('/comment/:id').get(getSpecificPosts);
 router.route('/addComment').put(isAuthenticatedUser, createComment);
 router.route('/dislike').put(isAuthenticatedUser, dislikePost);
 router.route('/like/:id').get(isAuthenticatedUser, likePost);
