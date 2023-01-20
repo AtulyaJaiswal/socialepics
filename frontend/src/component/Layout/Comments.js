@@ -15,7 +15,7 @@ const Comments = () => {
     const { loading, error, post } = useSelector((state) => state.openSpecificPost);
     const { success} = useSelector((state) => state.comment);
     const { isAuthenticated } = useSelector((state) => state.user);
-    // console.log(post);
+    console.log(post);
 
     const[comment,setComment] = useState("");
 

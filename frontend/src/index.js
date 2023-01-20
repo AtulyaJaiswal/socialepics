@@ -9,6 +9,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+
+// UpWork
+// Resume
+// Portfolio
+
 const options = {
   position:"bottom-center",
   autoClose: 3000,
