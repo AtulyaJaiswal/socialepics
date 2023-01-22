@@ -9,6 +9,7 @@ import Loader from "../Loader/Loader";
 import { CREATE_POST_RESET } from '../../constants/postConstants';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from "react-router-dom";
+import TrendHeader from '../Trend/TrendHeader';
 
 const Home = () => {
 
@@ -17,6 +18,8 @@ const Home = () => {
   const { loading, error, posts } = useSelector((state) => state.posts);
   const { success } = useSelector((state) => state.createPost);
   const { loading:userLoading, isAuthenticated, user } = useSelector((state) => state.user);
+  const { loading: trendLoading, trends} = useSelector((state) => state.trends);
+  // console.log(trends);
   // console.log(user);
 
   const open = () => {
@@ -28,6 +31,7 @@ const Home = () => {
       navigate("/createPostMobile");
     }
   }
+
   
   useEffect(() => {
     if(error){
@@ -43,22 +47,44 @@ const Home = () => {
   
   return (
     <Fragment>
-        {loading===true || userLoading===true ? (
+        {loading===true || userLoading===true || trendLoading===true ? (
           <Loader/>
         ) : (
           <Fragment>
             <div className='home'>
               <div className='home_left'>
                   <div className='home_heading'>
-                    <h4>Do Not Try Something Here</h4>
+                    <h4>HOT TOPICS</h4>
+                    {/* <h4>Do Not Try Something Here</h4> */}
+                    {/* {trendLoading===true ? (
+                      <Loader/>
+                    ) : (
+                      trends &&
+                        trends.map((trend, id) => {
+                          return(
+                            <h4 key={id}>{trend}</h4>
+                          )
+                        })
+                    )} */}
+                    <div className='trend_design'>
+                      {trends &&
+                          trends.map((trend, id) => {
+                            return(
+                              <TrendHeader key={id} trend={trend}/>
+                            )
+                          })
+                      }
+                    </div>
                   </div>
+                  <div className='break'></div>
                   <div>
                     {posts &&
                       posts.map((post) => {
                         return(
                           <PostCard key={post._id} post={post} user={user} isAuthenticated={isAuthenticated} />
                         );
-                      })}
+                      })
+                    }
                   </div>
               </div>
               <div className='home_right'>

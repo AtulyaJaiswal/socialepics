@@ -16,6 +16,8 @@ import CreatePostMobile from "./component/Layout/CreatePostMobile";
 import Dashboard from "./component/Admin/Dashboard";
 import PostList from "./component/Admin/PostList";
 import UserList from "./component/Admin/UserList";
+import { getTrends } from "./actions/postAction";
+import Trend from "./component/Trend/Trend";
 
 function App() {
 
@@ -29,6 +31,7 @@ function App() {
     });
 
     store.dispatch(loadUser());
+    store.dispatch(getTrends());
 
   },[]);
 
@@ -42,6 +45,7 @@ function App() {
         <Route path="/profile" element={<Profile/>} />
         <Route path="/comment/:id" element={<Comments/>} />
         <Route path="/createPost" element={<CreatePost/>}/>
+        <Route path="/trendPost" element={<Trend/>}/>
         <Route path="/createPostMobile" element={<CreatePostMobile/>}/>
         <Route path="/admin/dashboard" element={<Dashboard/>}/>
         <Route path="/admin/postList" element={<PostList/>}/>

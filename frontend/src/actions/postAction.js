@@ -18,6 +18,12 @@ import {
     LIKE_POST_REQUEST,
     LIKE_POST_SUCCESS,
     LIKE_POST_FAIL,
+    TREND_GET_REQUEST,
+    TREND_GET_SUCCESS,
+    TREND_GET_FAIL,
+    TREND_POST_REQUEST,
+    TREND_POST_SUCCESS,
+    TREND_POST_FAIL,
     CLEAR_ERRORS,
 }
 from "../constants/postConstants";
@@ -63,6 +69,33 @@ export const getPosts = () => async (dispatch) => {
             payload: error.response.data.message,
         });
     }
+};
+
+//GET Trend POSTS
+export const getTrendPosts = (trend) => async (dispatch) => {
+  try {
+      
+      dispatch({ type: TREND_POST_REQUEST});
+      // console.log(trend.name);
+
+      const config = { headers: { "Content-Type": "application/json" } };
+
+      const { data } = await axios.get(`/social/trendPosts/${trend.name}`);
+
+      // console.log(data.trendPosts);
+
+      dispatch({
+          type: TREND_POST_SUCCESS,
+          payload: data.trendPosts,
+        });
+
+  } catch (error) {
+      console.log(error);
+      dispatch({
+          type: TREND_POST_FAIL,
+          payload: error.response.data.message,
+      });
+  }
 };
 
 //GET SPECIFIC POSTS
@@ -133,8 +166,6 @@ export const likeDislike = (id) => async (dispatch) => {
         dispatch({ type: LIKE_POST_REQUEST });
     
         const { data } = await axios.get(`/social/like/${id}`);
-        
-        console.log(data);
     
         dispatch({
           type: LIKE_POST_SUCCESS,
@@ -147,6 +178,29 @@ export const likeDislike = (id) => async (dispatch) => {
           payload: error.response.data.message,
         });
       }
+}
+
+//Trend Getter
+export const getTrends = () => async (dispatch) => {
+  try {
+      dispatch({ type: TREND_GET_REQUEST });
+  
+      const { data } = await axios.get(`/social/trends`);
+      
+      // console.log(data);
+  
+      dispatch({
+        type: TREND_GET_SUCCESS,
+        payload: data.trends,
+      });
+
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: TREND_GET_FAIL,
+        payload: error.response.data.message,
+      });
+    }
 }
 
 // Clearing Errors

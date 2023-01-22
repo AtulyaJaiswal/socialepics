@@ -30,8 +30,8 @@ const CreatePost = () => {
         }
         else{
             const myForm = new FormData();
-            myForm.set("topic", topic);
-            myForm.set("text", text);
+            myForm.set("topic", topic.trim());
+            myForm.set("text", text.trim());
             dispatch(createsPost(myForm));
         }
     }
