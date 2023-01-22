@@ -20,6 +20,12 @@ import{
     LIKE_POST_REQUEST,
     LIKE_POST_SUCCESS,
     LIKE_POST_FAIL,
+    TREND_GET_REQUEST,
+    TREND_GET_SUCCESS,
+    TREND_GET_FAIL,
+    TREND_POST_REQUEST,
+    TREND_POST_SUCCESS,
+    TREND_POST_FAIL,
     CLEAR_ERRORS,
 }
 from "../constants/postConstants";
@@ -212,5 +218,62 @@ export const likePostReducer = (state = {like: {}}, action) => {
     default:
       return state;
   }
+};
+
+export const trendReducer = (state = {trends: []}, action) => {
+
+  switch(action.type){
+    case TREND_GET_REQUEST:
+        return {
+            loading: true,
+            trends: [],
+        };
+    case TREND_GET_SUCCESS:
+        return {
+            loading: false,
+            trends: action.payload,
+        };
+    case TREND_GET_FAIL:
+        return {
+            loading: false,
+            error: action.payload,
+        };
+    case CLEAR_ERRORS:
+        return {
+            ...state,
+            error: null,
+        };
+    default:
+        return state;   
+  }
+};
+
+//Get Trend Posts
+export const trendPostReducer = (state = {trendPosts: []}, action) => {
+
+    switch(action.type){
+        case TREND_POST_REQUEST:
+            return {
+                loading: true,
+                trendPosts: [],
+            };
+        case TREND_POST_SUCCESS:
+            return {
+                loading: false,
+                trendPosts: action.payload,
+            };
+        case TREND_POST_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+            };
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null,
+            };
+        default:
+            return state;   
+    }
 };
 

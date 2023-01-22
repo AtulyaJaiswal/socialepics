@@ -13,6 +13,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // UpWork
 // Resume
 // Portfolio
+// GitHub
+
 
 const options = {
   position:"bottom-center",
@@ -30,3 +32,7 @@ root.render(
   </Provider>
 );
 
+// A feature that allows users to create and share polls with other users.
+
+// A feature that allows users to schedule posts in advance, 
+// allowing them to plan and organize their content more efficiently.

@@ -7,8 +7,13 @@ import {postReducer,
         commentReducer,
         deletePostReducer,
         likePostReducer,
+        trendReducer,
+        trendPostReducer,
 } from "./reducers/postReducer";
-import { allUserReducer, deleteUserReducer, userPostsReducer, userReducer } from "./reducers/userReducer";
+import { allUserReducer,
+     deleteUserReducer, 
+     userPostsReducer, 
+     userReducer } from "./reducers/userReducer";
 
 const reducer = combineReducers({
     posts: postReducer,
@@ -22,6 +27,8 @@ const reducer = combineReducers({
     comment: commentReducer,
     deletePost: deletePostReducer,
     likePost: likePostReducer,
+    trends: trendReducer,
+    trendPosts: trendPostReducer,
 });
 
 let initialState = {
