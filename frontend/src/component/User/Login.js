@@ -59,7 +59,7 @@ const Login = () => {
                 <div className='login_container'>
                     <button onClick={signIn}>
                         <img
-                        src="https://aws1.discourse-cdn.com/auth0/optimized/3X/8/a/8a06490f525c8f65d4260204bc3bc7b0e1fb0ba7_2_500x500.png"
+                        src="https://play-lh.googleusercontent.com/6UgEjh8Xuts4nwdWzTnWH8QtLuHqRMUB7dp24JYVE2xcYzq4HA8hFfcAbU-R-PC_9uA1"
                         alt='Google'
                         />
                         Sign in with Google
