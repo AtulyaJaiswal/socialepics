@@ -3,14 +3,15 @@ import CreatePost from './CreatePost';
 // import PostCard from './PostCard';
 import "./Profile.css";
 import ProfilePostCard from './ProfilePostCard';
-import { getMyPosts, clearErrors } from '../../actions/userAction';
+import { getMyPosts, clearErrors, getMyScheduledPosts } from '../../actions/userAction';
 import { useSelector, useDispatch } from "react-redux";
 import {toast} from "react-toastify";
 import Loader from "../Loader/Loader";
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../actions/userAction';
-import { CREATE_POST_RESET, DELETE_POST_RESET } from '../../constants/postConstants';
+import { CREATE_POST_RESET, CREATE_SCHEDULE_POST_RESET, DELETE_POST_RESET, DELETE_SCHEDULED_POST_RESET } from '../../constants/postConstants';
 import AddIcon from '@mui/icons-material/Add';
+import ProfileSchedulePostCard from './ProfileSchedulePostCard';
 
 const Profile = () => {
 
@@ -18,9 +19,13 @@ const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, userPosts } = useSelector((state) => state.userPosts);
+  const { loading: scheduledPostsLoading, error: scheduledPostsError, userScheduledPosts } = useSelector((state) => state.scheduledPosts);
   const { error:deletedError, isDeleted } = useSelector((state) => state.deletePost);
+  const { error:deletedScheduledError, isDeleted: isScheduledDeleted } = useSelector((state) => state.deleteScheduledPost);
   const { loading:userLoading, isAuthenticated, user } = useSelector((state) => state.user);
   const { success } = useSelector((state) => state.createPost);
+  const { success: scheduleSuccess } = useSelector((state) => state.schedulePost);
+  
 
   const open = () => {
     if(isAuthenticated===false){
@@ -38,6 +43,10 @@ const Profile = () => {
         toast.error(error);
         dispatch(clearErrors());
     }
+    if(scheduledPostsError){
+      toast.error(scheduledPostsError);
+      dispatch(clearErrors());
+    }
     if(deletedError){
       toast.error(deletedError);
       dispatch(clearErrors());
@@ -46,17 +55,39 @@ const Profile = () => {
       toast.success("Post Deleted");
       dispatch({ type: DELETE_POST_RESET });
     }
-    if (success) {
+    if(deletedScheduledError){
+      toast.error(deletedScheduledError);
+      dispatch(clearErrors());
+    }
+    if(isScheduledDeleted){
+      toast.success("Scheduled Post Deleted");
+      dispatch({ type: DELETE_SCHEDULED_POST_RESET });
+    }
+    if (window.innerWidth>600 && success) {
       toast.success("Posted");
       dispatch({ type: CREATE_POST_RESET });
     }
+    if(window.innerWidth>600 && scheduleSuccess){
+      toast.success("Scheduled");
+      dispatch({ type: CREATE_SCHEDULE_POST_RESET });
+    }
     if(isAuthenticated){
       dispatch(getMyPosts());
+      dispatch(getMyScheduledPosts());
     }
     else{
       navigate("/login");
     }
-}, [dispatch, error, success, isDeleted, deletedError, isAuthenticated, navigate]);
+}, [dispatch, 
+    error, 
+    success, 
+    isDeleted, 
+    deletedError, 
+    isAuthenticated, 
+    navigate, 
+    deletedScheduledError, 
+    isScheduledDeleted, 
+    scheduleSuccess]);
 
 const signOut = () => {
   dispatch(logout());
@@ -65,7 +96,7 @@ const signOut = () => {
 
   return (
     <Fragment>
-        {loading || userLoading ? (
+        {loading || userLoading || scheduledPostsLoading ? (
           <Loader/>
         ) : (
           <Fragment>
@@ -83,6 +114,14 @@ const signOut = () => {
                       </div>
                       
                       <div>
+                        {
+                          userScheduledPosts &&
+                            userScheduledPosts.map((userSchedulePost) => {
+                              return(
+                                <ProfileSchedulePostCard key={userSchedulePost._id} userSchedulePost={userSchedulePost} user={user}/>
+                              );
+                          })
+                        }
                         {
                           (Array.isArray(userPosts) && userPosts.length) ? (
                             userPosts &&

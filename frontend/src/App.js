@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useEffect} from "react";
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -16,8 +17,19 @@ import CreatePostMobile from "./component/Layout/CreatePostMobile";
 import Dashboard from "./component/Admin/Dashboard";
 import PostList from "./component/Admin/PostList";
 import UserList from "./component/Admin/UserList";
-import { getTrends } from "./actions/postAction";
+import { getTrends, saveScheduledPosts } from "./actions/postAction";
 import Trend from "./component/Trend/Trend";
+import Update from "./component/Update/Update";
+import dayjs from 'dayjs';
+import AlarmIcon from '@mui/icons-material/Alarm';
+import SnoozeIcon from '@mui/icons-material/Snooze';
+import TextField from '@mui/material/TextField';
+import ClockIcon from '@mui/icons-material/AccessTime';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
+import Stack from '@mui/material/Stack';
 
 function App() {
 
@@ -32,7 +44,7 @@ function App() {
 
     store.dispatch(loadUser());
     store.dispatch(getTrends());
-
+    store.dispatch(saveScheduledPosts());
   },[]);
 
   return (
@@ -40,6 +52,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<Home/>} />
+        {/* <Route path="/updates" element={<Update/>} /> */}
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/profile" element={<Profile/>} />

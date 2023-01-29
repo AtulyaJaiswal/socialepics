@@ -3,6 +3,9 @@ import{
     USER_POSTS_REQUEST,
     USER_POSTS_SUCCESS,
     USER_POSTS_FAIL,
+    USER_SCHEDULED_POSTS_REQUEST,
+    USER_SCHEDULED_POSTS_SUCCESS,
+    USER_SCHEDULED_POSTS_FAIL,
     LOAD_USER_REQUEST,
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
@@ -93,6 +96,30 @@ export const getMyPosts = () => async (dispatch) => {
             payload: error.response.data.message,
         });
     }
+};
+
+//GET ALL USER SCHEDULED POSTS
+export const getMyScheduledPosts = () => async (dispatch) => {
+
+  try {
+      
+      dispatch({ type: USER_SCHEDULED_POSTS_REQUEST});
+
+      const { data } = await axios.get("/social/myScheduledPosts");
+
+      // console.log(data.userPosts);
+
+      dispatch({
+          type: USER_SCHEDULED_POSTS_SUCCESS,
+          payload: data.userScheduledPosts,
+        });
+
+  } catch (error) {
+      dispatch({
+          type: USER_SCHEDULED_POSTS_FAIL,
+          payload: error.response.data.message,
+      });
+  }
 };
 
 // Load User

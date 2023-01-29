@@ -1,0 +1,59 @@
+.scheduledCard{
+     display: flex;
+     margin: 1rem 0;
+     width: 100%;
+     /* color: orange; */
+ }
+ .scheduledPost{
+    /* display: flex;
+    flex-direction: column; */
+    margin-left: 1rem;
+    width: 100%;
+ }
+ .scheduled_post_name{
+     display: flex;
+     justify-content: space-between;
+     width: 100%;
+ }
+ .scheduled_post_name_inner{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+
+ }
+ .scheduled_post_name_inner > h5{
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    color: rgb(212, 214, 216);
+ }
+ .scheduled_post_name > .MuiSvgIcon-root{
+     color: red;
+     margin-right: 3rem;
+     cursor: pointer;
+ }
+ .scheduled_card_head{
+    text-decoration: none;
+ }
+.scheduled_card_head > p{
+    color: rgb(206, 206, 206);
+    font-family: "Lato";
+    font-weight: 600;
+    margin: 0.5rem 0;
+    margin-right: 2rem;
+    padding: 1rem 0;
+ }
+.break{
+     width: 100%;
+     height: 0.3rem;
+     background-color: black;
+ }
+
+ @media screen and (max-width: 600px) {
+   .scheduled_post_name_inner{
+      flex-direction: column;
+      align-items: flex-start;
+   }
+   .scheduled_post_name_inner > h5{
+      margin: 0;
+   }
+ }

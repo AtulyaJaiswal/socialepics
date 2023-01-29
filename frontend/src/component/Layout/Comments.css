@@ -1,7 +1,7 @@
 .comment{
     background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
     background-attachment: fixed;
-    min-height: 89vh;
+    min-height: 93vh;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */

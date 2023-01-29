@@ -9,12 +9,21 @@ import {
     CREATE_POST_REQUEST,
     CREATE_POST_SUCCESS,
     CREATE_POST_FAIL,
+    CREATE_SCHEDULE_POST_REQUEST,
+    CREATE_SCHEDULE_POST_SUCCESS,
+    CREATE_SCHEDULE_POST_FAIL,
     COMMENT_REQUEST,
     COMMENT_SUCCESS,
     COMMENT_FAIL,
+    COMMENT_DELETE_REQUEST,
+    COMMENT_DELETE_SUCCESS,
+    COMMENT_DELETE_FAIL,
     DELETE_POST_REQUEST,
     DELETE_POST_SUCCESS,
     DELETE_POST_FAIL,
+    DELETE_SCHEDULED_POST_REQUEST,
+    DELETE_SCHEDULED_POST_SUCCESS,
+    DELETE_SCHEDULED_POST_FAIL,
     LIKE_POST_REQUEST,
     LIKE_POST_SUCCESS,
     LIKE_POST_FAIL,
@@ -24,6 +33,9 @@ import {
     TREND_POST_REQUEST,
     TREND_POST_SUCCESS,
     TREND_POST_FAIL,
+    SAVE_SCHEDULE_POST_REQUEST,
+    SAVE_SCHEDULE_POST_SUCCESS,
+    SAVE_SCHEDULE_POST_FAIL,
     CLEAR_ERRORS,
 }
 from "../constants/postConstants";
@@ -46,6 +58,47 @@ export const createsPost = (postData) => async (dispatch) => {
         });
     }
 }
+
+//Schedule POSTS
+export const createSchedulePost = (postData) => async (dispatch) => {
+
+  try{
+      dispatch({ type: CREATE_SCHEDULE_POST_REQUEST });
+
+    const config = { headers: { "Content-Type": "multipart/form-data" } };
+
+    const { data } = await axios.post(`/social/createSchedulePost`, postData, config);
+
+    dispatch({ type: CREATE_SCHEDULE_POST_SUCCESS, payload: data });
+  } catch (error){
+      dispatch({
+          type: CREATE_SCHEDULE_POST_FAIL,
+          payload: error.response.data.message,
+      });
+  }
+};
+
+//Save Scheduled POSTS
+export const saveScheduledPosts = () => async (dispatch) => {
+  try {
+      
+      dispatch({ type: SAVE_SCHEDULE_POST_REQUEST});
+
+      const { data } = await axios.get("/social/schedulePosts");
+
+      dispatch({
+          type: SAVE_SCHEDULE_POST_SUCCESS,
+          payload: data,
+        });
+
+  } catch (error) {
+      console.log(error);
+      dispatch({
+          type: SAVE_SCHEDULE_POST_FAIL,
+          payload: error.response.data.message,
+      });
+  }
+};
 
 //GET ALL POSTS
 export const getPosts = () => async (dispatch) => {
@@ -76,11 +129,11 @@ export const getTrendPosts = (trend) => async (dispatch) => {
   try {
       
       dispatch({ type: TREND_POST_REQUEST});
-      // console.log(trend.name);
+      // console.log(trend);
 
-      const config = { headers: { "Content-Type": "application/json" } };
+      // const config = { headers: { "Content-Type": "application/json" } };
 
-      const { data } = await axios.get(`/social/trendPosts/${trend.name}`);
+      const { data } = await axios.get(`/social/trendPosts?trend=${trend.name}`);
 
       // console.log(data.trendPosts);
 
@@ -106,7 +159,7 @@ export const openSpecificPost = (id) => async (dispatch) => {
 
         const { data } = await axios.get(`/social/comment/${id}`);
 
-        console.log(data.post);
+        // console.log(data.post);
 
         dispatch({
             type: OPEN_SPECIFIC_POST_SUCCESS,
@@ -133,6 +186,7 @@ export const addComment = (comment,id) => async (dispatch) => {
       const { data } = await axios.put(`/social/addComment`, {comment, id}, config );
   
       dispatch({ type: COMMENT_SUCCESS, payload: data });
+
     } catch (error){
         dispatch({
             type: COMMENT_FAIL,
@@ -141,7 +195,32 @@ export const addComment = (comment,id) => async (dispatch) => {
     }
 };
 
-// Delete Product
+//Delete Comment
+export const deleteComment= (id, commentId) => async (dispatch) => {
+  try {
+    dispatch({ type: COMMENT_DELETE_REQUEST });
+
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    // const { data } = await axios.delete(`/social/comment/${id}`, {commentId} , config);
+
+    const { data } = await axios.delete(`/social/comment/${id}`,{
+      data : {commentId}
+    });
+
+    // console.log(data);
+
+    dispatch({ type: COMMENT_DELETE_SUCCESS, payload: data.message });
+
+  } catch (error) {
+    dispatch({
+      type: COMMENT_DELETE_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
+// Delete Post
 export const deletePost = (id) => async (dispatch) => {
     try {
       dispatch({ type: DELETE_POST_REQUEST });
@@ -158,6 +237,25 @@ export const deletePost = (id) => async (dispatch) => {
         payload: error.response.data.message,
       });
     }
+};
+
+// Delete Scheduled Post
+export const deleteScheduledPost = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: DELETE_SCHEDULED_POST_REQUEST });
+
+    const { data } = await axios.delete(`/social/deleteScheduledPost/${id}`);
+
+    dispatch({
+      type: DELETE_SCHEDULED_POST_SUCCESS,
+      payload: data.success,
+    });
+  } catch (error) {
+    dispatch({
+      type: DELETE_SCHEDULED_POST_FAIL,
+      payload: error.response.data.message,
+    });
+  }
 };
 
 //Likes Dislikes
@@ -195,7 +293,7 @@ export const getTrends = () => async (dispatch) => {
       });
 
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       dispatch({
         type: TREND_GET_FAIL,
         payload: error.response.data.message,

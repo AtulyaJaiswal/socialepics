@@ -7,16 +7,26 @@ const { createPost,
      dislikePost, 
      likePost,
      getAllTrends,
-     getSpecificTrendPosts} = require("../controllers/postController");
+     getSpecificTrendPosts,
+     createSchedulePost,
+     getAllSchedulePosts,
+     deleteComment,
+     deleteScheduledPost} = require("../controllers/postController");
 const router = express.Router();
 const {isAuthenticatedUser, authorizeRoles} = require("../middleware/auth");
 
 router.route('/createPost').post(isAuthenticatedUser, createPost);
+router.route('/createSchedulePost').post(isAuthenticatedUser, createSchedulePost);
 router.route('/deletePost/:id').delete(isAuthenticatedUser, deletePost);
+router.route('/deleteScheduledPost/:id').delete(isAuthenticatedUser, deleteScheduledPost);
 router.route('/posts').get(getAllPosts);
+router.route('/schedulePosts').get(getAllSchedulePosts);
 router.route('/trends').get(getAllTrends);
-router.route('/trendPosts/:trend').get(getSpecificTrendPosts);
-router.route('/comment/:id').get(getSpecificPosts);
+router.route('/trendPosts').get(getSpecificTrendPosts);
+router.route('/comment/:id')
+     .get(getSpecificPosts)
+     .delete(isAuthenticatedUser, deleteComment);
+router.route('/comment/:id')
 router.route('/addComment').put(isAuthenticatedUser, createComment);
 router.route('/dislike').put(isAuthenticatedUser, dislikePost);
 router.route('/like/:id').get(isAuthenticatedUser, likePost);

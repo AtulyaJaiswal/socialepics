@@ -38,9 +38,11 @@ const ProfilePostCard = ({userPost,user}) => {
   return (
     <Fragment>
         <div className='card'>
-            <div className='profile_icon'><Person4Icon 
-            style={{color: userPost.avatarColor}}
-            /></div>
+            <div className='profile_icon'>
+                <Person4Icon 
+                    style={{color: userPost.avatarColor}}
+                />
+            </div>
             <div className='post'>
                 <div className='post_name'>
                     <h4 style={{color:"orange"}}>{userPost.userName}</h4>

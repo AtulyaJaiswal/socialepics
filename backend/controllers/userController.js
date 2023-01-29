@@ -2,6 +2,7 @@ const ErrorHandler = require("../utils/errorhandler");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require('../models/userModel');
 const Post = require("../models/postModel");
+const SchedulePost = require("../models/schedulePostModel");
 const sendToken = require("../utils/jwtToken");
 // const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
@@ -83,6 +84,24 @@ exports.getUserPosts = catchAsyncErrors(async (req,res,next) => {
     res.status(200).json({
         success: true,
         userPosts: userPosts.reverse(),
+    });
+});
+
+//GET USER Scheduled POSTS
+exports.getUserScheduledPosts = catchAsyncErrors(async (req,res,next) => {
+
+    const userScheduledPosts = await SchedulePost.find({user_id: req.user._id});
+
+    if(!userScheduledPosts){
+        res.status(200).json({
+            success: true,
+            userScheduledPosts: null,
+        });
+    }
+    
+    res.status(200).json({
+        success: true,
+        userScheduledPosts: userScheduledPosts.reverse(),
     });
 });
 

@@ -2,6 +2,9 @@ import{
     USER_POSTS_REQUEST,
     USER_POSTS_SUCCESS,
     USER_POSTS_FAIL,
+    USER_SCHEDULED_POSTS_REQUEST,
+    USER_SCHEDULED_POSTS_SUCCESS,
+    USER_SCHEDULED_POSTS_FAIL,
     LOAD_USER_REQUEST,
     LOAD_USER_SUCCESS,
     LOAD_USER_FAIL,
@@ -95,6 +98,34 @@ export const userPostsReducer = (state = {userPosts: []}, action) => {
                 userPosts: action.payload,
             };
         case USER_POSTS_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+            };
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null,
+            };
+        default:
+            return state;   
+    }
+};
+
+
+export const userScheduledPostsReducer = (state = {userScheduledPosts: []}, action) => {
+    switch(action.type){
+        case USER_SCHEDULED_POSTS_REQUEST:
+            return {
+                loading: true,
+                userScheduledPosts: [],
+            };
+        case USER_SCHEDULED_POSTS_SUCCESS:
+            return {
+                loading: false,
+                userScheduledPosts: action.payload,
+            };
+        case USER_SCHEDULED_POSTS_FAIL:
             return {
                 loading: false,
                 error: action.payload,
