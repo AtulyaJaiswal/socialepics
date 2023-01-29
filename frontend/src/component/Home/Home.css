@@ -5,7 +5,7 @@
     /* background-color: linear-gradient(orange,black); */
     display: flex;
     padding-top: 1rem;
-    min-height: 87vh;
+    min-height: 95vh;
 }
 .home_left{
     flex: 0.7;
@@ -24,6 +24,7 @@
 }
 .trend_design{
     display: flex;
+    flex-wrap: wrap;
 }
 .home_heading > h4{
     color: rgba(255, 255, 255, 0.902);
@@ -98,12 +99,13 @@
 }
 .home_right{
     flex: 0.3;
-    height: 83vh;
+    height: max-content;
     border-top: 0.2rem solid grey;
     border-left: 0.2rem solid grey;
     border-bottom: 0.2rem solid grey;
     border-radius: 3rem;
     margin-right: 2rem;
+    padding-bottom: 1.5rem;
 }
 .floating_button{
     display: none;

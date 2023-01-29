@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import "./Header.css";
 import Logo from "../../Images/Logo2.png";
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import PermPhoneMsgOutlinedIcon from '@mui/icons-material/PermPhoneMsgOutlined';
+// import PermPhoneMsgOutlinedIcon from '@mui/icons-material/PermPhoneMsgOutlined';
+import UpgradeIcon from '@mui/icons-material/Upgrade';
 import { useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 
@@ -18,25 +19,29 @@ const Header = () => {
         ) : (
           <Fragment>
               <div className='navbar'>
-                  {isAuthenticated ? (
-                    <Link to="/profile">
-                      <AccountCircleOutlinedIcon style={{fontSize:"2rem"}}/>
-                  </Link>
-                  ) : (
-                    <Link to="/login">
-                      <AccountCircleOutlinedIcon style={{fontSize:"2rem"}}/>
+                  <div className='navbar_left'>
+                    {isAuthenticated ? (
+                      <Link to="/profile">
+                        <AccountCircleOutlinedIcon style={{fontSize:"2rem"}}/>
                     </Link>
-                  )}   
-                  <Link to="/">
-                    <img
-                    className='logo'
-                    src={Logo}
-                    alt="Logo"
-                    />
-                  </Link>
-                  <Link to="/contact">
-                    <PermPhoneMsgOutlinedIcon style={{fontSize:"2rem"}}/>
-                  </Link>
+                    ) : (
+                      <Link to="/login">
+                        <AccountCircleOutlinedIcon style={{fontSize:"2rem"}}/>
+                      </Link>
+                    )} 
+                  </div>  
+                  <div className='navbar_right'>
+                    <Link to="/">
+                      <img
+                      className='logo'
+                      src={Logo}
+                      alt="Logo"
+                      />
+                    </Link>
+                  </div>
+                  {/* <Link to="/updates">
+                    <UpgradeIcon style={{fontSize:"2rem"}}/>
+                  </Link> */}
               </div>
           </Fragment>
     )}

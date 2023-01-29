@@ -7,7 +7,7 @@
     /* justify-content: center; */
     align-items: center;
     padding-top: 1rem;
-    min-height: 87vh;
+    min-height: 93vh;
 }
 .login_heading > h2{
     font-size: 3rem;
@@ -39,7 +39,7 @@
     /* justify-content: center; */
     align-items: center;
     padding-top: 1rem;
-    min-height: 88vh;
+    min-height: 93vh;
 }
 .register_heading > h2{
     font-size: 3rem;

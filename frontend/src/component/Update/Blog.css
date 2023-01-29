@@ -1,0 +1,28 @@
+.update_card{
+    display: flex;
+    margin: 1rem 0;
+}
+.updateCard_head{
+     text-decoration: none;
+}
+.updatePosts{
+    margin-left: 1rem;
+    width: 100%;
+}
+.updatePosts > a > p{
+    color: rgb(206, 206, 206);
+    font-family: "Lato";
+    font-weight: 600;
+    margin: 0.5rem 0;
+    margin-right: 2rem;
+    padding: 1rem 0;
+}
+.updateProfile_icon{
+     margin-left: 1rem;
+}
+.break{
+     width: 100%;
+     height: 0.3rem;
+     background-color: black;
+     margin: 0;
+}

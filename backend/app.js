@@ -21,9 +21,11 @@ app.use(fileUpload());
 //ROUTES
 const user = require("./routes/userRoute");
 const post = require("./routes/postRoute");
+const admin = require("./routes/adminRoute");
 
 app.use("/social",user);
 app.use("/social",post);
+app.use("/social",admin);
 
 //MIDDLEWARE FOR ERROR
 app.use(errorMiddleware);

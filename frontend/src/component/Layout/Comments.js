@@ -5,7 +5,7 @@ import "./Comments.css";
 import {toast} from "react-toastify";
 import Loader from "../Loader/Loader";
 import { useParams } from 'react-router-dom';
-import { COMMENT_RESET } from '../../constants/postConstants';
+import { COMMENT_DELETE_RESET, COMMENT_RESET } from '../../constants/postConstants';
 import CommentCard from "./CommentCard.js";
 
 const Comments = () => {
@@ -14,8 +14,9 @@ const Comments = () => {
     const dispatch = useDispatch();
     const { loading, error, post } = useSelector((state) => state.openSpecificPost);
     const { success} = useSelector((state) => state.comment);
-    const { isAuthenticated } = useSelector((state) => state.user);
-    console.log(post);
+    const { user, isAuthenticated } = useSelector((state) => state.user);
+    const { error:deletedError, isDeleted } = useSelector((state) => state.commentDelete);
+    // console.log(post);
 
     const[comment,setComment] = useState("");
 
@@ -41,6 +42,7 @@ const Comments = () => {
             toast.error(error);
             dispatch(clearErrors());
         }
+
         dispatch(openSpecificPost(id));
 
         if (success) {
@@ -48,7 +50,17 @@ const Comments = () => {
             setComment("")
             dispatch({ type: COMMENT_RESET });
         }
-    }, [dispatch, id, success, error]);
+
+        if(deletedError){
+            toast.error(deletedError);
+            dispatch(clearErrors());
+        }
+
+        if(isDeleted){
+            toast.success("Comment Deleted");
+            dispatch({ type: COMMENT_DELETE_RESET });
+        }
+    }, [dispatch, id, success, error, isDeleted, deletedError]);
 
   return (
     <Fragment>
@@ -85,7 +97,7 @@ const Comments = () => {
                                 post.comments && 
                                 post.comments.map((com) => {
                                     return(
-                                        <CommentCard key={com._id} com={com} />
+                                        <CommentCard key={com._id} com={com} user={user} post={post} />
                                     );
                                 })
                             ) : (

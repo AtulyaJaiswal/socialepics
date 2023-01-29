@@ -60,24 +60,64 @@
 .text-input::-webkit-scrollbar {
     display: none;
 }
-.post_button{
+.post_with_calendar{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.post_button > button{
+.calendar{
+    margin-bottom: 1rem;
+}
+.post_with_calendar_button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+.post_with_calendar_button > button{
     background-color: orange;
     color: black;
-    width: 5rem;
+    width: max-content;
+    padding: 0.2rem 1rem;
     border-radius: 2rem;
-    font: "Roboto";
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
     border: none;
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.5s; 
-    transform: rotate(0.5turn);
+    /* margin-right: 2rem; */
+    /* transform: rotate(0.5turn); */
     /* box-shadow: 0 2px 5px rgba(146, 39, 39, 0.219); */
+}
+.post_without_calendar{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.post_without_calendar_button{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+.post_without_calendar_button > button{
+    background-color: orange;
+    color: black;
+    width: max-content;
+    padding: 0.2rem 1rem;
+    border-radius: 2rem;
+    /* font-family:; */
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.5s; 
+    margin: auto;
+    /* margin-right: 2rem; */
+    /* transform: rotate(0.5turn); */
 }
 .post_button > button:hover{
     transform: rotate(0turn);

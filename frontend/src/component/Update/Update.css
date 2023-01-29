@@ -1,0 +1,64 @@
+.update{
+    background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+    background-attachment: fixed;
+    min-height: 100vh;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* padding: 0 10rem; */
+}
+
+.update_heading{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+.update_heading> h4{
+     color: orange;
+     font-size: 2rem;
+     text-decoration: underline;
+     font-family: 'Times New Roman', Times, serif;
+     font-weight: 600;
+}
+.update_text_field{
+     display: flex;
+     flex-direction: column;
+     margin: 2rem;
+}
+.update_input{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 80vw;
+    border: none;
+    border-radius: 2rem;
+    outline: none;
+    /* resize: none; */
+    background-color: rgba(0, 0, 0, 0.868);
+    height: 3rem;
+    padding: 1rem;
+    overflow-y: hidden;
+    color: rgb(159, 157, 155);
+    margin-top: 1rem;
+}
+.update_button{
+     display: flex;
+     /* align-items: center;
+     justify-content: center; */
+     margin: 1rem 0 0 1rem;
+ }
+ .update_button > button{
+     background-color: orange;
+     color: black;
+     width: 5rem;
+     border-radius: 2rem;
+     font: "Roboto";
+     border: none;
+     font-size: 1.1rem;
+     font-weight: 700;
+     cursor: pointer;
+     /* transition: all 0.5s; 
+     transform: rotate(0.5turn); */
+     /* box-shadow: 0 2px 5px rgba(146, 39, 39, 0.219); */
+ }

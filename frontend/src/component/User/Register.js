@@ -19,7 +19,7 @@ const Register = () => {
                 setOtpObj(response);
                 setOtpButton(true);
                 setSendOtpBut(false);
-                // console.log(response);
+                console.log(response);
             } catch (error) {
                 toast.error("Not able to send otp. Please reload the page and try again.");
                 console.log(error);

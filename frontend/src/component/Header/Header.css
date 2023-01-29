@@ -1,13 +1,24 @@
 .navbar{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    display: flex;
     align-items: center;
     height: 6vh;
     background-color: black;
     text-decoration: none;
     padding: 0.8rem 0;
 }
-.navbar > a{
+.navbar_left{
+    flex: 0.2;
+}
+.navbar_right{
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 13rem;
+}
+.navbar > div > a{
     font: 300 1rem "Roboto";
     margin: 0 3rem;
     text-decoration: none;
@@ -21,10 +32,19 @@
     width: 9rem;
 }
 @media screen and (max-width: 600px) {
-    .navbar{
+    /* .navbar{
         justify-content: space-around;
-    }
-    .navbar > a{
+    } */
+    .navbar > div > a{
         margin: 0 0px;
+    }
+    .navbar_left{
+        flex: 0.1;
+        margin-left: 0.5rem;
+    }
+    .navbar_right{
+        flex: 0.9;
+        margin: 0;
+        margin-right: 2rem;
     }
 }

@@ -14,6 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // Resume
 // Portfolio
 // GitHub
+// Firebase
 
 
 const options = {

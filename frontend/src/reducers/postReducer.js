@@ -9,10 +9,22 @@ import{
     CREATE_POST_SUCCESS,
     CREATE_POST_RESET,
     CREATE_POST_FAIL,
+    CREATE_SCHEDULE_POST_REQUEST,
+    CREATE_SCHEDULE_POST_SUCCESS,
+    CREATE_SCHEDULE_POST_FAIL,
+    CREATE_SCHEDULE_POST_RESET,
     DELETE_POST_REQUEST,
     DELETE_POST_SUCCESS,
     DELETE_POST_RESET,
     DELETE_POST_FAIL,
+    DELETE_SCHEDULED_POST_REQUEST,
+    DELETE_SCHEDULED_POST_SUCCESS,
+    DELETE_SCHEDULED_POST_FAIL,
+    DELETE_SCHEDULED_POST_RESET,
+    COMMENT_DELETE_REQUEST,
+    COMMENT_DELETE_SUCCESS,
+    COMMENT_DELETE_FAIL,
+    COMMENT_DELETE_RESET,
     COMMENT_REQUEST,
     COMMENT_SUCCESS,
     COMMENT_FAIL,
@@ -26,6 +38,9 @@ import{
     TREND_POST_REQUEST,
     TREND_POST_SUCCESS,
     TREND_POST_FAIL,
+    SAVE_SCHEDULE_POST_REQUEST,
+    SAVE_SCHEDULE_POST_SUCCESS,
+    SAVE_SCHEDULE_POST_FAIL,
     CLEAR_ERRORS,
 }
 from "../constants/postConstants";
@@ -63,6 +78,67 @@ export const createPostReducer = (state = {post: {}}, action) => {
           return state;
       }
 }
+
+export const createSchedulePostReducer = (state = {schedulePost: {}}, action) => {
+  switch (action.type) {
+      case CREATE_SCHEDULE_POST_REQUEST:
+        return {
+          ...state,
+          loading: true,
+        };
+      case CREATE_SCHEDULE_POST_SUCCESS:
+        return {
+          loading: false,
+          success: action.payload.success,
+          schedulePost: action.payload.schedulePost,
+        };
+      case CREATE_SCHEDULE_POST_FAIL:
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        };
+      case CREATE_SCHEDULE_POST_RESET:
+        return {
+          ...state,
+          success: false,
+        };
+      case CLEAR_ERRORS:
+        return {
+          ...state,
+          error: null,
+        };
+      default:
+        return state;
+    }
+}
+
+export const saveScheduledPostReducer = (state = {}, action) => {
+
+    switch(action.type){
+        case SAVE_SCHEDULE_POST_REQUEST:
+            return {
+                loading: true,
+            };
+        case SAVE_SCHEDULE_POST_SUCCESS:
+            return {
+                loading: false,
+                success: action.payload.success,
+            };
+        case SAVE_SCHEDULE_POST_FAIL:
+            return {
+                loading: false,
+                error: action.payload,
+            };
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null,
+            };
+        default:
+            return state;   
+    }
+};
 
 export const postReducer = (state = {posts: []}, action) => {
 
@@ -158,6 +234,39 @@ export const commentReducer = (state = {comment: {}}, action) => {
         return state;
     }
 };
+export const deleteCommentReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COMMENT_DELETE_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case COMMENT_DELETE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isDeleted: action.payload,
+      };
+    case COMMENT_DELETE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case COMMENT_DELETE_RESET:
+      return {
+        ...state,
+        isDeleted: false,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+    default:
+      return state;
+  }
+};
 
 export const deletePostReducer = (state = {}, action) => {
     switch (action.type) {
@@ -191,6 +300,40 @@ export const deletePostReducer = (state = {}, action) => {
       default:
         return state;
     }
+};
+
+export const deleteScheduledPostReducer = (state = {}, action) => {
+  switch (action.type) {
+    case DELETE_SCHEDULED_POST_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case DELETE_SCHEDULED_POST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isDeleted: action.payload,
+      };
+    case DELETE_SCHEDULED_POST_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case DELETE_SCHEDULED_POST_RESET:
+      return {
+        ...state,
+        isDeleted: false,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+    default:
+      return state;
+  }
 };
 
 export const likePostReducer = (state = {like: {}}, action) => {

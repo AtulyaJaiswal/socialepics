@@ -1,8 +1,24 @@
 .comment_card{
     display: flex;
     padding: 1rem;
+    width: 100%;
 }
-.comment_card_inner > h4{
+.comment_post_name{
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    justify-content: space-between;
+}
+.comment_post_name > .MuiSvgIcon-root{
+    color: red;
+    font-size: 2rem;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+.comment_card_inner{
+    width: 100% ;
+}
+.comment_card_inner > div > h4{
     font-size: 1.5rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: orange;
