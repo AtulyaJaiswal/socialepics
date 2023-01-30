@@ -10,6 +10,7 @@ const path=require("path");
 
 //Handling Uncaught Exception
 process.on("uncaughtException", (err) => {
+    console.log(err);
     console.log(`Error: ${err.message}`);
     console.log(`Shutting down server due to uncaught Exception`);
     process.exit(1);    

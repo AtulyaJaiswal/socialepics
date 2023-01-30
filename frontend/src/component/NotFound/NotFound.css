@@ -1,0 +1,20 @@
+.error_page{
+     background-image: linear-gradient(to bottom, #256D85, rgba(0, 0, 0, 0.927));
+     background-attachment: fixed;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: auto;
+     min-height: 93vh;
+}
+.error_page > h1{
+     color: orange;
+}
+.error_page > a{
+     margin-top: 1rem;
+     text-decoration: none;
+     color: white;
+     text-decoration: underline;
+     font-size: 1.2rem;
+}
