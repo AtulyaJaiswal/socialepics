@@ -61,7 +61,7 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
     const month=new Date().getMonth();
     const hour=new Date().getHours();
     const minute=new Date().getMinutes();
-    // console.log(date+" "+month+" "+hour+" "+minute);
+    // console.log(year+" "+month+" "+date+" "+hour+" "+minute);
     posts.forEach(search);
     async function search(post){
         // console.log(post);
@@ -82,7 +82,7 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
                     if(parseInt(arr[3])>hour){
                         next;
                     }
-                    else if(parseInt(arr[3])=hour){
+                    else if(parseInt(arr[3])===hour){
                         if(parseInt(arr[4])>minute){
                             next;
                         }

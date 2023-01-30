@@ -30,6 +30,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { MobileDateTimePicker } from '@mui/x-date-pickers/MobileDateTimePicker';
 import Stack from '@mui/material/Stack';
+import NotFound from './component/NotFound/NotFound';
 
 function App() {
 
@@ -60,9 +61,10 @@ function App() {
         <Route path="/createPost" element={<CreatePost/>}/>
         <Route path="/trendPost" element={<Trend/>}/>
         <Route path="/createPostMobile" element={<CreatePostMobile/>}/>
-        <Route path="/admin/dashboard" element={<Dashboard/>}/>
+        {/* <Route path="/admin/dashboard" element={<Dashboard/>}/>
         <Route path="/admin/postList" element={<PostList/>}/>
-        <Route path="/admin/userList" element={<UserList/>}/>
+        <Route path="/admin/userList" element={<UserList/>}/> */}
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </Router>
   );
