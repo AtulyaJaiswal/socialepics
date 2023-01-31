@@ -62,6 +62,7 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
     const hour=new Date().getHours();
     const minute=new Date().getMinutes();
     // console.log(year+" "+month+" "+date+" "+hour+" "+minute);
+    // console.log("pahucha");
     posts.forEach(search);
     async function search(post){
         // console.log(post);
