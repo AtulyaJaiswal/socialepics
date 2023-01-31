@@ -113,20 +113,23 @@ export const createSchedulePostReducer = (state = {schedulePost: {}}, action) =>
     }
 }
 
-export const saveScheduledPostReducer = (state = {}, action) => {
+export const saveScheduledPostReducer = (state = {time:""}, action) => {
 
     switch(action.type){
         case SAVE_SCHEDULE_POST_REQUEST:
             return {
                 loading: true,
+                time: "",
             };
         case SAVE_SCHEDULE_POST_SUCCESS:
             return {
                 loading: false,
                 success: action.payload.success,
+                time: action.payload,
             };
         case SAVE_SCHEDULE_POST_FAIL:
             return {
+                ...state,
                 loading: false,
                 error: action.payload,
             };
