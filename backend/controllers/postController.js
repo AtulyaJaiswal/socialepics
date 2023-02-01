@@ -61,9 +61,9 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
     const month=new Date().getMonth();
     const hour=new Date().getHours();
     const minute=new Date().getMinutes();
-    const time=year+" "+month+" "+date+" "+hour+" "+minute;
-    // console.log(year+" "+month+" "+date+" "+hour+" "+minute);
-    // console.log("pahucha");
+    const finalHour=new Date().getTimezoneOffset()/60;
+    const finalMinute=new Date().getTimezoneOffset()%60;
+    const time=year+" "+month+" "+date+" "+finalHour+" "+finalMinute;
     posts.forEach(search);
     async function search(post){
         // console.log(post);
@@ -81,11 +81,11 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
                     next;
                 }
                 else if(parseInt(arr[2])===date){
-                    if(parseInt(arr[3])>hour){
+                    if(parseInt(arr[3])>finalHour){
                         next;
                     }
-                    else if(parseInt(arr[3])===hour){
-                        if(parseInt(arr[4])>minute){
+                    else if(parseInt(arr[3])===finalHour){
+                        if(parseInt(arr[4])>finalMinute){
                             next;
                         }
                         else{
