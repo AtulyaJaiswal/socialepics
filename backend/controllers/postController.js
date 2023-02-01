@@ -65,6 +65,8 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
     const extraHour=Math.floor((minute+finalMinute)/60);
     const finalHour=Math.floor(Math.abs(new Date().getTimezoneOffset())/60)+extraHour;
     const time=year+" "+month+" "+date+" "+(hour+finalHour)+" "+(minute+finalMinute)%60;
+    const userTime=year+" "+month+" "+date+" "+hour+" "+minute;
+    const sendTime=time+" "+userTime;
     // if(hour+finalHour>24) day=day+1;
     // console.log(hour+" "+finalHour+" "+minute+" "+finalMinute);
     // console.log((hour+finalHour)+" "+(minute+finalMinute));
@@ -185,7 +187,7 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
 
     res.status(200).json({
         success: true,
-        time,
+        time:sendTime,
     })
 });
 
