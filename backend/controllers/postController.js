@@ -61,9 +61,13 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
     const month=new Date().getMonth();
     const hour=new Date().getHours();
     const minute=new Date().getMinutes();
-    const finalHour=new Date().getTimezoneOffset()/60;
-    const finalMinute=new Date().getTimezoneOffset()%60;
-    const time=year+" "+month+" "+date+" "+finalHour+" "+finalMinute;
+    const finalMinute=Math.abs(new Date().getTimezoneOffset())%60;
+    const extraHour=Math.floor((minute+finalMinute)/60);
+    const finalHour=Math.floor(Math.abs(new Date().getTimezoneOffset())/60)+extraHour;
+    const time=year+" "+month+" "+date+" "+(hour+finalHour)+" "+(minute+finalMinute)%60;
+    // if(hour+finalHour>24) day=day+1;
+    // console.log(hour+" "+finalHour+" "+minute+" "+finalMinute);
+    // console.log((hour+finalHour)+" "+(minute+finalMinute));
     posts.forEach(search);
     async function search(post){
         // console.log(post);
@@ -81,11 +85,11 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
                     next;
                 }
                 else if(parseInt(arr[2])===date){
-                    if(parseInt(arr[3])>finalHour){
+                    if(parseInt(arr[3])>hour+finalHour){
                         next;
                     }
-                    else if(parseInt(arr[3])===finalHour){
-                        if(parseInt(arr[4])>finalMinute){
+                    else if(parseInt(arr[3])===hour+finalHour){
+                        if(parseInt(arr[4])>(minute+finalMinute)%60){
                             next;
                         }
                         else{
