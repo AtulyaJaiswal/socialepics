@@ -113,7 +113,7 @@ const signOut = () => {
                           <button onClick={signOut}>LogOut</button>
                         </div>
                       </div>
-                      <h1 style={{color:"white",fontsize:"1rem"}}>{time}</h1>
+                      <h1 style={{color:"white",fontsize:"1.1rem"}}>{time}</h1>
                       <div>
                         {
                           userScheduledPosts &&
