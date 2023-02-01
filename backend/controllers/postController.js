@@ -66,7 +66,7 @@ exports.getAllSchedulePosts = catchAsyncErrors(async(req,res,next) => {
     const finalHour=Math.floor(Math.abs(new Date().getTimezoneOffset())/60)+extraHour;
     const time=year+" "+month+" "+date+" "+(hour+finalHour)+" "+(minute+finalMinute)%60;
     const userTime=year+" "+month+" "+date+" "+hour+" "+minute;
-    const sendTime=time+" "+userTime;
+    const sendTime=time+" "+userTime+" "+new Date().getTimezoneOffset();
     // if(hour+finalHour>24) day=day+1;
     // console.log(hour+" "+finalHour+" "+minute+" "+finalMinute);
     // console.log((hour+finalHour)+" "+(minute+finalMinute));
