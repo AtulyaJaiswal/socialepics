@@ -27,7 +27,7 @@ const Profile = () => {
   const { success: scheduleSuccess } = useSelector((state) => state.schedulePost);
   const { time } = useSelector((state) => state.saveScheduledPosts);
   
-  console.log(time);
+  // console.log(time);
   const open = () => {
     if(isAuthenticated===false){
       toast.error("Login first");
@@ -113,7 +113,7 @@ const signOut = () => {
                           <button onClick={signOut}>LogOut</button>
                         </div>
                       </div>
-                      <h1>{time}</h1>
+                      <h1 style={{color:"white"}}>{time}</h1>
                       <div>
                         {
                           userScheduledPosts &&
