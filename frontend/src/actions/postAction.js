@@ -86,9 +86,11 @@ export const saveScheduledPosts = () => async (dispatch) => {
 
       const { data } = await axios.get("/social/schedulePosts");
 
+      console.log(data);
+
       dispatch({
           type: SAVE_SCHEDULE_POST_SUCCESS,
-          payload: data,
+          payload: data.time,
         });
 
   } catch (error) {
